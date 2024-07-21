@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+    color: black;
+    font-family: "Playfair Display";
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    height: 91.2vh;
+}
+
+.whole-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.left-container, .right-container{
+    width: 50%;
+    height: 100%;
+}
+
+.service-image{
+    margin-top: 15%;
+}
+
+.header{
+    font-family: "Playfair Display";
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.description{
+    width: 85%;
+    font-size: 1.2rem;
+    margin-right: 100px;
+}
+
+.left-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 13%;
+    margin-left: 12%;
+}
+
+.service-button{
+    margin-top: 20px;
+    height: 45px;
+    width: 43%;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+}
+
+.service-button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.7s;
+
+}

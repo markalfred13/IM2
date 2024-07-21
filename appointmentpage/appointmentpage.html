@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="appointmentpage.css">
+    <link rel="icon" type="image/x-icon" href="autodoc-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="preloader.css">
+    <link rel="stylesheet" href="loginpage.css">
+    <link rel="stylesheet" href="navigation.css">
+    <title>AutoDoc - Driven by your needs</title>
+
+</head>
+
+<body>
+    <div class="bg">
+        <div class="loader"></div>
+      </div>
+    <div class="nav-bar">
+        <a href="../landingpage/landingpage.php"> <img class="nav-logo" src="nav-logo.png" alt="navigation-logo"></a>
+           
+        <div class="nav-links">
+            <a href="../landingpage/landingpage.php">Home</a>
+            <a class="about-link" href="../aboutpage/aboutpage.php">About us</a>
+            <a class="service-link" href="../servicepage/servicespage.php">Services</a>
+            
+        </div>
+        <div class="profile">
+            <div id="glass-div" class="glass">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="user user-icon">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="user-dropdown-content">
+                    <a href="../view-profile/catcher.php"><div class="dropdown-item" id="viewProfileBtn">View Profile</div></a>
+                    <a href="../password-change/password.php"><div class="dropdown-item" data-action="settings">Change Password</div></a>
+                    <a href="../logout/logout_Script.php"><div class="dropdown-item" data-action="logout">Logout</div></a>
+                </div>
+            </div>
+                </div>
+    </div>
+    <section id="section1">
+          <div class="description">
+            <span>Want to book an appointment with us? Kindly input the necessary information in order for our team to book your appointment</span>
+            <form action="connectmotor.php" method="post" onsubmit="return handleFormSubmit(this);">
+                <div class="center">
+                    <div class="row"></div>
+                    <legend>Date and Time Selection</legend>
+                    <label for="appointment_date">Preferred Appointment Date</label><br>
+                    <input class="date" type="date" id="appointment_date" name="appointment_date" required><br><br>
+              
+                    <label for="appointment_time">Preferred Appointment Time</label><br>
+                    <input class="time" type="time" id="appointment_time" name="appointment_time" required><br><br>
+                
+                </div>
+                    
+              <label for="first_name">First Name</label><br>
+              <input type="text" id="first_name" name="first_name" required><br><br>
+            
+              <label for="last_name">Last Name</label><br>
+              <input type="text" id="last_name" name="last_name" required><br><br>
+            
+              <label for="email">Email Address</label><br>
+              <input type="email" id="email" name="email" required><br><br>
+            
+              <label for="phone">Phone Number</label><br>
+              <input type="tel" id="phone" name="phone"><br><br>
+            
+              <label for="location">Address</label><br>
+              <input type="text" id="address" name="address" required><br><br>
+            
+              <label for="message">Additional Info (optional)</label><br>
+              <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            
+      
+              <input type="submit" value="Submit">
+              <input type="reset" value="Cancel">
+            </form>
+
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <script>
+        function handleFormSubmit(form) {
+            // 1. AJAX Submission (Recommended)
+            const formData = new FormData(form);
+
+            fetch('connectmotor.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return response.text(); // Or response.json() if you're expecting JSON
+            })
+            .then(data => {
+                // Handle the response from the PHP script (e.g., show a success message)
+                alert(data); // Or update the UI accordingly
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form.');
+            });
+
+            return false; // Prevent default form submission behavior
+        }
+    </script>
+    <script src="appointment.js"></script>
+
+</body>
+</html>

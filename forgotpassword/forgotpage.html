@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="form">
+        <form autocomplete="off" id="ForgotPasswordForm">
+        <h2>Forgot Password?</h2>
+        <div class="form-message" id="msg"></div>
+        <p>You can reset your Password here</p>
+        <input id="email" type="text" class="passInput" placeholder="Email address">
+        <button>Send My Password</button>
+    </div>
+        </form>
+       
+</body>
+
+
+    <script type="text/javascript">
+        $(document). ready(function(){
+            $("#ForgotPasswordForm").on('submit',function(e){
+                e.preventDefault();
+
+                var email = $('#email').val();
+                alert(email);
+
+                $.ajax({
+                    type:"POST",
+                    url: "forgotpassword_in.php",
+                    data:{email:email},
+
+                    success:function(data){
+
+                        $('.form-message').css("display","block");
+
+                        $('.form-message').html(data);
+                        
+                    }
+                })
+            });
+        });
+    </script>
+</html>
